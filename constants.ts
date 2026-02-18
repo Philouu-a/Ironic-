@@ -1,5 +1,4 @@
-
-import { ColorTheme } from './types';
+import { ColorTheme } from './types.ts';
 
 export const COLOR_THEMES: ColorTheme[] = [
   { bg: 'bg-[#FF1A3D]', postIt: 'bg-[#FF1A3D]', text: 'text-white', accent: 'bg-[#FF1A3D]' },

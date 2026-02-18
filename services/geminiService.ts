@@ -1,6 +1,5 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
-import { GeminiResponse } from "../types";
+import { GeminiResponse } from "../types.ts";
 
 export const fetchIronicMantras = async (): Promise<GeminiResponse | null> => {
   try {
