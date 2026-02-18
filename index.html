@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ironic Mantra Post-Its</title>
+  <title>Ironic Luxury Archive</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
   <style>
@@ -47,24 +47,30 @@
     }
   </style>
   <script>
-    // Shim indispensable pour éviter les erreurs "process is not defined" en environnement statique
-    window.process = window.process || { env: { API_KEY: "" } };
+    // Configuration pour environnement statique GitHub Pages
+    window.process = {
+      env: {
+        NODE_ENV: 'production',
+        API_KEY: '' // La clé sera injectée par l'environnement ou restera vide pour le fallback local
+      }
+    };
   </script>
-<script type="importmap">
+  <script type="importmap">
 {
   "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "lucide-react": "https://esm.sh/lucide-react@^0.475.0"
+    "@google/genai": "https://esm.sh/@google/genai@1.40.0",
+    "react": "https://esm.sh/react@19.0.0",
+    "react/": "https://esm.sh/react@19.0.0/",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
   }
 }
 </script>
 </head>
 <body>
   <div id="root"></div>
-  <!-- Chargement explicite du module principal pour GitHub Pages -->
+  <!-- Chargement du module principal avec chemin relatif -->
   <script type="module" src="./index.tsx"></script>
 </body>
 </html>
