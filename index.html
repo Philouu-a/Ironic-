@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ironic Luxury Archive</title>
+  <title>Ironic Luxury Archive | Standalone</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Babel pour compiler le TSX dans le navigateur (Indispensable pour GitHub Pages sans build) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
   <style>
     body {
       margin: 0;
@@ -15,62 +19,47 @@
       font-family: 'Inter', sans-serif;
       color: white;
     }
-    .perspective-1000 {
-      perspective: 1500px;
-    }
-    .backface-hidden {
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-    }
-    .rotate-y-180 {
-      transform: rotateY(180deg);
-    }
-    .transform-style-3d {
-      transform-style: preserve-3d;
-    }
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    .squircle {
-       border-radius: 80px;
-    }
+    .perspective-1000 { perspective: 1500px; }
+    .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .squircle { border-radius: 80px; }
     @keyframes bounce-slow {
-      0%, 100% { transform: translateY(-10%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
-      50% { transform: translateY(0); animation-timing-function: cubic-bezier(0,0,0.2,1); }
+      0%, 100% { transform: translateY(-10%); }
+      50% { transform: translateY(0); }
     }
-    .animate-bounce-slow {
-      animation: bounce-slow 2s infinite;
-    }
+    .animate-bounce-slow { animation: bounce-slow 2s infinite; }
   </style>
+
   <script>
-    // Configuration pour environnement statique GitHub Pages
+    // Configuration de l'environnement global
     window.process = {
       env: {
         NODE_ENV: 'production',
-        API_KEY: '' // La clé sera injectée par l'environnement ou restera vide pour le fallback local
+        API_KEY: '' 
       }
     };
   </script>
+
   <script type="importmap">
 {
   "imports": {
     "@google/genai": "https://esm.sh/@google/genai@1.40.0",
     "react": "https://esm.sh/react@19.0.0",
-    "react/": "https://esm.sh/react@19.0.0/",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
   }
 }
 </script>
 </head>
 <body>
   <div id="root"></div>
-  <!-- Chargement du module principal avec chemin relatif -->
-  <script type="module" src="./index.tsx"></script>
+  
+  <!-- On charge le point d'entrée avec Babel -->
+  <script type="text/babel" data-type="module" data-presets="typescript,react" src="./index.tsx"></script>
 </body>
 </html>
