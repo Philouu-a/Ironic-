@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ironic Luxury Archive | Standalone</title>
+  <title>IRONIC. | Luxury Mantra Archive</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
   
-  <!-- Babel pour compiler le TSX dans le navigateur (Indispensable pour GitHub Pages sans build) -->
+  <!-- Babel Standalone : Permet de lire le TSX directement dans le navigateur -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      background-color: #000000;
-      font-family: 'Inter', sans-serif;
-      color: white;
+      margin: 0; padding: 0; overflow-x: hidden;
+      background-color: #000000; font-family: 'Inter', sans-serif; color: white;
     }
     .perspective-1000 { perspective: 1500px; }
     .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
@@ -27,18 +23,18 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     .squircle { border-radius: 80px; }
     @keyframes bounce-slow {
-      0%, 100% { transform: translateY(-10%); }
+      0%, 100% { transform: translateY(-5%); }
       50% { transform: translateY(0); }
     }
-    .animate-bounce-slow { animation: bounce-slow 2s infinite; }
+    .animate-bounce-slow { animation: bounce-slow 3s infinite ease-in-out; }
   </style>
 
   <script>
-    // Configuration de l'environnement global
+    // Configuration de l'environnement global simulé
     window.process = {
       env: {
         NODE_ENV: 'production',
-        API_KEY: '' 
+        API_KEY: '' // Injecté par l'environnement si disponible
       }
     };
   </script>
@@ -58,8 +54,7 @@
 </head>
 <body>
   <div id="root"></div>
-  
-  <!-- On charge le point d'entrée avec Babel -->
+  <!-- Le script doit être de type text/babel pour que Babel le compile -->
   <script type="text/babel" data-type="module" data-presets="typescript,react" src="./index.tsx"></script>
 </body>
 </html>
