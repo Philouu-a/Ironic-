@@ -3,58 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IRONIC. | Luxury Mantra Archive</title>
+  <title>IRONIC. | Luxury Mantra</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <!-- Polices Audacieuses : Unbounded pour l'impact, Bebas Neue pour le style mode, Cormorant pour l'élégance -->
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Bebas+Neue&family=Inter:wght@400;900&family=Cormorant+Garamond:ital,wght@1,300;1,600&display=swap" rel="stylesheet">
   
-  <!-- Babel Standalone : Compilateur indispensable pour lire le code React/TSX dans le navigateur -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   
-  <style>
-    body {
-      margin: 0; padding: 0; overflow-x: hidden;
-      background-color: #000000; font-family: 'Inter', sans-serif; color: white;
-    }
-    .perspective-1000 { perspective: 1500px; }
-    .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-    .rotate-y-180 { transform: rotateY(180deg); }
-    .transform-style-3d { transform-style: preserve-3d; }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    .squircle { border-radius: 80px; }
-    @keyframes bounce-slow {
-      0%, 100% { transform: translateY(-5%); }
-      50% { transform: translateY(0); }
-    }
-    .animate-bounce-slow { animation: bounce-slow 3s infinite ease-in-out; }
-  </style>
-
-  <script>
-    // Initialisation immédiate de l'environnement simulé pour éviter les erreurs "process is not defined"
-    window.process = { 
-      env: { 
-        NODE_ENV: 'production',
-        API_KEY: '' 
-      } 
-    };
-  </script>
-
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@19.0.0",
-    "react-dom": "https://esm.sh/react-dom@19.0.0",
-    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "@google/genai": "https://esm.sh/@google/genai@1.40.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "react/": "https://esm.sh/react@^19.2.4/"
-  }
-}
-</script>
+  <link rel="stylesheet" href="/index.css">
 </head>
 <body>
   <div id="root"></div>
-  <!-- On pointe directement vers le fichier qui contient toute l'application -->
-  <script type="text/babel" data-type="module" data-presets="typescript,react" src="./index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
